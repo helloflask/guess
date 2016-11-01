@@ -1,7 +1,7 @@
 # guess-flask
 A Flask version of guess the number game. （猜数字Flask版） 
 
-## Extension version
+## Versions
 Flask==0.11.1  
 Flask-Bootstrap==3.0.3.1  
 Flask-WTF==0.12  
