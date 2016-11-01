@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="text-center"> <!-- 使所有文字居中显示 -->
+    {% for message in get_flashed_messages() %} <!-- 使用Flask提供的函数获取flash消息 -->
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="page-header">
+        <h1>猜数字Web版</h1>
+    </div>
+    <!-- 创建一个page_content用来放置其他模板里的内容 -->
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
