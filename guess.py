@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
-from flask import Flask, render_template, flash, redirect, url_for, session
+import copy
+from flask import Flask, render_template, flash, redirect, url_for, session, g
 from flask_wtf import Form
 from wtforms import IntegerField, SubmitField
 from wtforms.validators import Required, NumberRange
@@ -10,27 +11,24 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'very hard to guess string'
 bootstrap = Bootstrap(app)
 
-times = 10
-
-
 @app.route('/')
 def index():
-    global times
     # generate a random number in 0~1000, store it into session.
     session['number'] = random.randint(0, 1000)
-    times = 10
+    session['times'] = 10
     return render_template('index.html')
 
 
 @app.route('/guess', methods=['GET', 'POST'])
 def guess():
-    global times
+    times = session['times']
     result = session.get('number')
     form = GuessNumberForm()
     if form.validate_on_submit():
         times -= 1
+        session['times'] = times  # update session value
         if times == 0:
-            flash(u'不好意思，你输了！')
+            flash(u'你输啦……o(>﹏<)o')
             return redirect(url_for('.index'))
         answer = form.number.data
         if answer > result:
@@ -38,7 +36,7 @@ def guess():
         elif answer < result:
             flash(u'太小了！你还剩下%s次机会' % times)
         else:
-            flash(u'恭喜，你赢了！')
+            flash(u'啊哈，你赢了！V(＾－＾)V')
             return redirect(url_for('.index'))
     return render_template('guess.html', form=form)
 
