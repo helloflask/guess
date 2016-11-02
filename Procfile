@@ -1,1 +1,1 @@
-web: gunicorn guess:app
+web: gunicorn -k gevent guess:app
