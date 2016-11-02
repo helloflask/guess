@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import random
-import copy
-from flask import Flask, render_template, flash, redirect, url_for, session, g
+from flask import Flask, render_template, flash, redirect, url_for, session
 from flask_wtf import Form
 from wtforms import IntegerField, SubmitField
 from wtforms.validators import Required, NumberRange
