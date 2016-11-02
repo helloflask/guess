@@ -33,9 +33,9 @@ def guess():
             return redirect(url_for('.index'))
         answer = form.number.data
         if answer > result:
-            flash(u'太大了！你还剩下%s次机会' % times)
+            flash(u'太大了！你还剩下%s次机会。' % times)
         elif answer < result:
-            flash(u'太小了！你还剩下%s次机会' % times)
+            flash(u'太小了！你还剩下%s次机会。' % times)
         else:
             flash(u'啊哈，你赢了！V(＾－＾)V')
             return redirect(url_for('.index'))
@@ -43,10 +43,9 @@ def guess():
 
 
 class GuessNumberForm(Form):
-    number = IntegerField(u'输入一个整数：', validators=[
+    number = IntegerField(u'输入一个整数(0~1000)', validators=[
         Required(u'请输入一个有效的整数！'),
-        NumberRange(0, 1000, u'请输入0~1000以内的整数！')],
-                          render_kw={'placeholder': u'(0~1000)'})
+        NumberRange(0, 1000, u'请输入0~1000以内的整数！')])
     submit = SubmitField(u'提交')
 
 
