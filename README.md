@@ -1,6 +1,11 @@
 # guess-flask
 A Flask version of guess the number game. （猜数字Flask版） 
 
+## DEMO
+http://guessguess.herokuapp.com/
+
+![demo](http://withlihui.com/wp-content/uploads/2016/11/guess1.jpg)
+
 ## Versions
 Flask==0.11.1  
 Flask-Bootstrap==3.0.3.1  
