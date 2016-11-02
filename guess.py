@@ -43,9 +43,10 @@ def guess():
 
 
 class GuessNumberForm(Form):
-    number = IntegerField(u'输入一个整数（0~1000）：', validators=[
+    number = IntegerField('Guess the Number:', validators=[
         Required(u'请输入一个有效的整数！'),
-        NumberRange(0, 1000, u'请输入0~1000以内的整数！')])
+        NumberRange(0, 1000, u'请输入0~1000以内的整数！')],
+                          render_kw={'placeholder': u'输入一个整数(0~1000)'})
     submit = SubmitField(u'提交')
 
 
