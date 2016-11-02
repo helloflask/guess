@@ -30,7 +30,7 @@ def guess():
     if form.validate_on_submit():
         times -= 1
         if times == 0:
-            flash(u'你输了！')
+            flash(u'不好意思，你输了！')
             return redirect(url_for('.index'))
         answer = form.number.data
         if answer > result:
@@ -38,17 +38,17 @@ def guess():
         elif answer < result:
             flash(u'太小了！你还剩下%s次机会' % times)
         else:
-            flash(u'你赢了！')
+            flash(u'恭喜，你赢了！')
             return redirect(url_for('.index'))
     return render_template('guess.html', form=form)
 
 
 class GuessNumberForm(Form):
-    number = IntegerField(u'输入数字：', validators=[
+    number = IntegerField(u'输入数字（0~1000）：', validators=[
         Required(u'输入一个有效的数字！'),
         NumberRange(0, 1000, u'请输入0~1000以内的数字！')])
     submit = SubmitField(u'提交')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

@@ -1,12 +1,10 @@
-{% extends "base.html" %} <!-- 引入基模板 -->
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
 <div class="row">
-    <!-- 创建一个空的column，使表单居中显示 -->
-    <div class="col-md-5"></div>
-    <div class="col-md-2">
-        <!-- 使用Flask-Bootstrap提供的函数来生成默认样式的表单 -->
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
         {{ wtf.quick_form(form) }}
     </div>
 </div>

@@ -1,17 +1,48 @@
 {% extends "bootstrap/base.html" %}
+{% block title %}猜数字 - Flask{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<style>
+    body {
+        background: #82c458;
+    }
+    .warpper {
+        width: 40%;
+        margin:100px auto;
+        padding:40px;
+        background: #fff;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+{% endblock %}
 
 {% block content %}
-<div class="text-center"> <!-- 使所有文字居中显示 -->
-    {% for message in get_flashed_messages() %} <!-- 使用Flask提供的函数获取flash消息 -->
+<div class="text-center">
+    <div class="warpper">
+        {% for message in get_flashed_messages() %}
         <div class="alert alert-info">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             {{ message }}
         </div>
-    {% endfor %}
-    <div class="page-header">
-        <h1>猜数字Web版</h1>
+        {% endfor %}
+        <div class="page-header">
+            <h1>猜数字</h1>
+        </div>
+        <br><br>
+        {% block page_content %}{% endblock %}
+        <div>
+            <br><br>
+            <a href="http://greyli.com" target="_blank">Blog</a> |
+            <a href="https://github.com/helloflask/guess-flask" target="_blank">源码</a> |
+            知乎专栏：<a href="https://zhuanlan.zhihu.com/flask" target="_blank">Hello, Flask!</a>
+        </div>
+        <hr>
+        <a href="http://flask.pocoo.org/">
+            <img src="http://flask.pocoo.org/static/badges/flask-powered.png"
+                 border="0" alt="Flask powered" title="Flask powered">
+        </a>
     </div>
-    <!-- 创建一个page_content用来放置其他模板里的内容 -->
-    {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
