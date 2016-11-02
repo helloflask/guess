@@ -5,6 +5,7 @@
 {{ super() }}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 <style>
     body {
         background: #82c458;
@@ -47,3 +48,7 @@
     </div>
 </div>
 {% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='bootstrap.min.js') }}" type="text/javascript"></script>
+{% endblock scripts %}
