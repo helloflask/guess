@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 Run:  
 ```
-set FLASK_APP=guess.py    
+set FLASK_APP=app.py    
 flask run
 ```
 
@@ -30,4 +30,5 @@ Go to http://127.0.0.1:5000/
 
 ## More details
 [Flask实践：猜数字](https://zhuanlan.zhihu.com/p/23340992)  
-by：[Hello, Flask!——知乎专栏](https://zhuanlan.zhihu.com/flask)
+更多关于Flask的原创优质内容，欢迎关注[Hello, Flask!——知乎专栏](https://zhuanlan.zhihu.com/flask)
+
