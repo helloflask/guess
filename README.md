@@ -1,4 +1,4 @@
-# guess-flask
+# guess
 A Flask version of guess the number game. （猜数字Flask版） 
 
 ## DEMO
