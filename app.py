@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import random
+
 from flask import Flask, render_template, flash, redirect, url_for, session
 from flask_wtf import Form
 from wtforms import IntegerField, SubmitField
@@ -30,7 +31,7 @@ def guess():
         session['times'] = times  # update session value
         if times == 0:
             flash(u'你输啦……o(>﹏<)o', 'danger')
-            return redirect(url_for('.index'))
+            return redirect(url_for('index'))
         answer = form.number.data
         if answer > result:
             flash(u'太大了！你还剩下%s次机会。' % times, 'warning')
@@ -38,7 +39,8 @@ def guess():
             flash(u'太小了！你还剩下%s次机会。' % times, 'info')
         else:
             flash(u'啊哈，你赢了！V(＾－＾)V', 'success')
-            return redirect(url_for('.index'))
+            return redirect(url_for('index'))
+        return redirect(url_for('guess'))
     return render_template('guess.html', form=form)
 
 
