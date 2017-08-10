@@ -2,15 +2,22 @@
 import random
 
 from flask import Flask, render_template, flash, redirect, url_for, session
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import IntegerField, SubmitField
-from wtforms.validators import Required, NumberRange
+from wtforms.validators import DataRequired, NumberRange
 from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'very hard to guess string'
 app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 bootstrap = Bootstrap(app)
+
+
+class GuessNumberForm(FlaskForm):
+    number = IntegerField(u'输入一个整数(0~1000)', validators=[
+        DataRequired(u'请输入一个有效的整数！'),
+        NumberRange(0, 1000, u'请输入0~1000以内的整数！')])
+    submit = SubmitField(u'提交')
 
 
 @app.route('/')
@@ -24,7 +31,7 @@ def index():
 @app.route('/guess', methods=['GET', 'POST'])
 def guess():
     times = session['times']
-    result = session.get('number')
+    result = session['number']
     form = GuessNumberForm()
     if form.validate_on_submit():
         times -= 1
@@ -42,13 +49,6 @@ def guess():
             return redirect(url_for('index'))
         return redirect(url_for('guess'))
     return render_template('guess.html', form=form)
-
-
-class GuessNumberForm(Form):
-    number = IntegerField(u'输入一个整数(0~1000)', validators=[
-        Required(u'请输入一个有效的整数！'),
-        NumberRange(0, 1000, u'请输入0~1000以内的整数！')])
-    submit = SubmitField(u'提交')
 
 
 if __name__ == '__main__':

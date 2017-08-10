@@ -15,18 +15,21 @@ Werkzeug==0.11.11
 WTForms==2.1  
 
 ## Installation
-Change to app directory, use `virtualenv` create and activate virtual enviroment.  
-Then use `pip` to install requirements：  
+First, clone it from Github:
 ```
-pip install -r requirements.txt
+$ git clone https://github.com/helloflask/guess.git
+$ cd guess
+```  
+Then use `pip` to install requirements (recommend to use `virtualenv` create a virtual enviroment)：  
 ```
-Run:  
+$ pip install -r requirements-dev.txt
 ```
-set FLASK_APP=app.py    
-flask run
+Run the app:
+```
+$ python app.py
 ```
 
-Go to http://127.0.0.1:5000/
+Now Go to http://127.0.0.1:5000/
 
 ## More details
 [Flask实践：猜数字](https://zhuanlan.zhihu.com/p/23340992)  

@@ -2,5 +2,9 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
-    {{ wtf.quick_form(form) }}
+	<form action="{{ url_for('guess') }}" class="form" method="post">
+    {{ form.csrf_token }}	
+    {{ wtf.form_field(form.number, autocomplete="off", autofocus="autofocus") }}
+    {{ wtf.form_field(form.submit) }}
+	</form>
 {% endblock %}
