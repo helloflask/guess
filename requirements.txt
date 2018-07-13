@@ -4,5 +4,5 @@ Flask-WTF==0.14.2
 Jinja2==2.9.6
 Werkzeug==0.12.2
 WTForms==2.1
-gunicorn==18.0
+gunicorn==19.5.0
 gevent
