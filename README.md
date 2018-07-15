@@ -7,7 +7,7 @@ http://guessguess.herokuapp.com/
 ![demo](http://withlihui.com/wp-content/uploads/2016/11/guess1.jpg)
 
 ## Versions
-Flask==0.11.1  
+Flask==1.0.2  
 Flask-Bootstrap==3.0.3.1  
 Flask-WTF==0.12  
 Jinja2==2.8  
@@ -26,7 +26,7 @@ $ pip install -r requirements-dev.txt
 ```
 Run the app:
 ```
-$ python app.py
+$ flask run
 ```
 
 Now Go to http://127.0.0.1:5000/
