@@ -36,7 +36,7 @@ def guess():
     if form.validate_on_submit():
         times -= 1
         session['times'] = times  # update session value
-        if times == 0:
+        if times < 0:
             flash(u'你输啦……o(>﹏<)o', 'danger')
             return redirect(url_for('index'))
         answer = form.number.data
