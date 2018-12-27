@@ -11,7 +11,7 @@ Flask==1.0.2
 Flask-Bootstrap==3.0.3.1  
 Flask-WTF==0.12  
 Jinja2==2.8  
-Werkzeug==0.11.11  
+Werkzeug==0.14
 WTForms==2.1  
 
 ## Installation
